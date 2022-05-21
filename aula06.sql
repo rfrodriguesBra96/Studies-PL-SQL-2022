@@ -50,7 +50,7 @@ BEGIN
     ROLLBACK TO INSERTOK;
     -- save point não encerra a transação
     -- é necessário decidir se será feito um commit ou rollback
-    
+    -- nesse caso o commit será apenas feito pelo insert
     COMMIT;
 END;
 
