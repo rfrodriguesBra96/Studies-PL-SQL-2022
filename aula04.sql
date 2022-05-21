@@ -10,4 +10,5 @@ BEGIN
     UPDATE  employees
     SET     first_name = 'Bianca'
     WHERE   employee_id = 129;
+    COMMIT;
 END;
