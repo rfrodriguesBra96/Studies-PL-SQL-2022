@@ -1,0 +1,12 @@
+-- Usando o comando DELETE
+
+ALTER SESSION SET CURRENT_SCHEMA=RODRIGO_RODRIGUES;
+
+SET SERVEROUTPUT ON
+
+DECLARE
+BEGIN
+    DELETE FROM employees
+    WHERE       employee_id = 'SA_REP';
+    COMMIT;
+END;
