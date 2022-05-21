@@ -49,3 +49,37 @@ BEGIN
     DBMS_OUTPUT.PUT_LINE('vSalary IS ' || vSalary);
 END;
 
+-- Select usando ROUND e AVG
+
+DECLARE
+   vJob_id          employees.job_id%type := 'AD_VP';
+   vAvg_Salary      employees.salary%type;
+   vSum_Salary      employees.salary%type;
+BEGIN
+    -- Soma os salarios dos employees com id = AD_VP
+    -- Calcula a media dos employees  com id = AD_VP
+    -- ROUND e AVG garantem que seja retornado apenas uma linha
+   SELECT ROUND(AVG(salary),2), ROUND(SUM(salary),2)
+   INTO   vAvg_Salary, vSum_Salary 
+   FROM   employees
+   WHERE  job_id = vJob_id;
+   DBMS_OUTPUT.PUT_LINE('Cargo: ' || vJob_id);
+   DBMS_OUTPUT.PUT_LINE('Média de salários: ' || vAvg_Salary);
+   DBMS_OUTPUT.PUT_LINE('Somatório de salarios: ' || vSum_Salary);
+END;
+
+-- Erro TOO_MANY_ROWS
+
+DECLARE
+   vJob_id          employees.job_id%type;
+   vAvg_Salary      employees.salary%type;
+   vSum_Salary      employees.salary%type;
+BEGIN
+   SELECT job_id, ROUND(AVG(salary),2), ROUND(SUM(salary),2)
+   INTO   vJob_id, vAvg_Salary, vSum_Salary 
+   FROM   employees
+   GROUP BY job_id;
+   DBMS_OUTPUT.PUT_LINE('Cargo: ' || vJob_id);
+   DBMS_OUTPUT.PUT_LINE('Média de salários: ' || vAvg_Salary);
+   DBMS_OUTPUT.PUT_LINE('Somatório de salarios: ' || vSum_Salary);
+END;
