@@ -13,3 +13,19 @@ BEGIN
    COMMIT;  -- Não esquecer do COMMIt
 END;
 
+-- INSERT exemplo 2
+
+desc hstiponotificacao;
+
+select * from hstiponotificacao;
+
+DECLARE
+BEGIN
+    INSERT INTO hstiponotificacao
+    (descricao, nome_interno, assunto, corpo, ativa)
+    VALUES
+    ('Aniversário', 
+    'ANIVERSARIO', 'Aniversário do head do data lab', 
+    'O head Hioko está de aniversário.', 1);
+    COMMIT;
+END;
