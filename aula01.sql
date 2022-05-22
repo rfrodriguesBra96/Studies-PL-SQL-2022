@@ -1,5 +1,5 @@
--- Vari·vel Tipo PL/SQL Record
--- Uma estrutura de campos na memÛria
+-- Vari√°vel Tipo PL/SQL Record
+-- Uma estrutura de campos na mem√≥ria
 
 SET SERVEROUTPUT ON
 ALTER SESSION SET CURRENT_SCHEMA=RODRIGO_RODRIGUES
@@ -8,7 +8,7 @@ DECLARE
     TYPE region_rec_type IS RECORD
         (region_id regions.region_id%type,
         region_name regions.region_name%type);
-    region_record region_rec_type;           -- Vari·vel do tipo region_rec
+    region_record region_rec_type;           -- Vari√°vel do tipo region_rec
 BEGIN
     SELECT region_id, region_name
     INTO region_record
