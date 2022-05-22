@@ -1,0 +1,34 @@
+Cursor implícito
+    São cursores declarados em comandos DML ou comandos SELECT que retornam apenas uma linha
+
+Cursor explícito
+    Podem retornar mais de uma linha
+    Cada linha pode ser manipulada em sequência (individualmente)
+    result set: conjunto de linhas retornas por uma  consulta multi row (cursor explícito)
+    Flow:
+        1. DECLARE: declarar (na seção DECLARE) o cursor e associar a um comando SELECT
+        2. OPEN: na seção BEGIN realizar o open do cursor, neste etapa o oracle realizar o select do cursor e obtém o result set
+        3. FETCH: entrar em loop para controlar o cursor, pega a linha corrent do cursor e poem nas variáveis em memória no programa
+                  controlar a saída do cursor, quando não encontrar mais nada em result set
+        4. CLOSE: fechar o cursor e liberar a memória
+
+Atributos de Cursor  explícito
+    %ISOPEN Retorna TRUE se o cursor estiver aberto
+    %NOTFOUND Retorna TRUE se o último FETCH não achou uma linha
+    %FOUND  Retorna TRUE se o último FETCH achou uma linha
+    %ROWCOUNT Retorna o número de linhas reparadas pelo FETCH até o momento
+
+-- Estrutura básica de um cursor
+DECLARE
+    CURSOR IS -- Declaração do cursor
+    SELECT
+    FROM
+BEGIN
+    OPEN -- Abrindo cursor
+        LOOP -- Loop básico
+            FETCH -- Fetch
+            INTO
+            EXIT WHEN %notfound;
+        END LOOP;
+    CLOSE; -- Close do cursor
+END;
