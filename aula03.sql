@@ -1,4 +1,4 @@
--- Escopo de Identificadores ( vari·veis, cursores, constante, etc )
+-- Escopo de Identificadores ( vari√°veis, cursores, constante, etc )
 
 SET SERVEROUTPUT ON
 
@@ -8,7 +8,7 @@ DECLARE
 BEGIN
     DBMS_OUTPUT.PUT_LINE('vBloco1 is = ' || VBloco1);
     DECLARE
-        -- var declarada no bloco 1
+        -- var declarada no bloco 2
         vBloco2 VARCHAR(20)  := 'Bloco 2';
     BEGIN
         DBMS_OUTPUT.PUT_LINE('vBloco1 is = ' || VBloco1);
