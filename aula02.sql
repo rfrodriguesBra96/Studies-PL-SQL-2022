@@ -14,7 +14,7 @@ BEGIN
 END;
  
 --Removendo um Schedule 
- 
+
 BEGIN
     DBMS_SCHEDULER.DROP_SCHEDULE (
         schedule_name  => 'SCH_A_CADA_10_SEGUNDOS',
